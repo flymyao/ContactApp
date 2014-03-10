@@ -8,6 +8,7 @@ import com.google.inject.AbstractModule;
  * 
  * TODO: add/remove bindings to fit your application's need
  * 
+ * 
  */
 public class MyAppConfig extends AbstractModule {
 

@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Mar 09 15:27:52 CST 2014
+commons-beanutils-1.8.0.jar>=
+commons-beanutils-1.8.0.jar>central=
+commons-beanutils-1.8.0.pom>central=
