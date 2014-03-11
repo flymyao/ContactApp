@@ -1,17 +1,13 @@
 package com.example.contactapp.web;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import com.britesnow.snow.web.handler.annotation.WebActionHandler;
-import com.britesnow.snow.web.handler.annotation.WebModelHandler;
-import com.britesnow.snow.web.param.annotation.WebModel;
 import com.britesnow.snow.web.param.annotation.WebParam;
 import com.example.contactapp.dao.ContactDao;
 import com.example.contactapp.dao.GroupDao;
-import com.example.contactapp.entity.Contact;
 import com.example.contactapp.entity.Group;
 import com.google.inject.Singleton;
 
@@ -28,18 +24,21 @@ public class GroupDaoWebHandlers {
 
     @WebActionHandler
     public Group daoGroupGet(@WebParam("obj_id")Long id){
+    	System.out.println("请求获得一个Group对象，Group_id"+id);
     	Group group = groupDao.get(id);
     	return group;
     }
     
     @WebActionHandler
     public List<Group> daoGroupList(){
+    	System.out.println("请求获得全部Group对象，Group_id");
     	return groupDao.list();
     }
     
     
     @WebActionHandler
     public Group daoGroupCreate(@WebParam("groupName")String groupName){
+    	System.out.println("请求生成一个新的Group对象，Group_id"+groupName);
     	Group group = groupDao.create(groupName);
     	return group;
     }

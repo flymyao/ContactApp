@@ -20,6 +20,7 @@ brite.registerView("MainView", {emptyParent:true}, {
 	    
 	    var contactDao = brite.dao("Contact");
 	    var groupDao = brite.dao("Group");
+	    var userDao = brite.dao("User");
 	    
     	contactDao.list().done(function(contactList) {
     		brite.display("ContactView", mainView.$el.find(".MainView-right"), { contactList : contactList});
@@ -29,6 +30,9 @@ brite.registerView("MainView", {emptyParent:true}, {
     		brite.display("GroupView", mainView.$el.find(".MainView-left"), { groupList : groupList});
     	});
 	    
+    	userDao.list().done(function(userList) {
+    		brite.display("UserView", mainView.$el.find(".MainView-bottom"), { userList : userList});
+    	});
    }
  });
 

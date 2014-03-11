@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.example.contactapp.entity.Contact;
 import com.example.contactapp.entity.Group;
 import com.google.inject.Singleton;
 

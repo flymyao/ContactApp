@@ -25,6 +25,7 @@
 			
 			brite.registerDao(new brite.ContactDaoHandler("Contact"));
 			brite.registerDao(new brite.GroupDaoHandler("Group"));
+			brite.registerDao(new brite.UserDaoHandler("User"));
 			
 			var $mainview = $("body").find("#mainview");
 			$(document).ready(function(){

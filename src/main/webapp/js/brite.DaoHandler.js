@@ -254,3 +254,101 @@
 })(jQuery);
 
 
+//--------- UserDaoHandler --------- //
+(function($) {
+
+	var defaultOpts = {
+		idName : "id"
+	}
+
+	function UserDaoHandler(entityType,seed, opts) {
+		init.call(this,entityType,seed, opts);
+	}
+
+
+	function init(entityType,seed,opts) {
+		this._entityType = entityType;
+		this._opts = $.extend({}, defaultOpts, opts);
+		this._idName = this._opts.idName;
+	}
+
+
+	// --------- DAO Info Methods --------- //
+	UserDaoHandler.prototype.entityType = function() {
+		return this._entityType;
+	}	
+	
+	UserDaoHandler.prototype.get = function(id) {
+		var data = {
+				userId : id
+			};
+
+			return $.ajax({
+				type : "POST",
+				url : "daoUserGet.do",
+				data : data,
+				dataType : "json"
+			}).pipe(function(val) {
+				return val;
+			});
+	}
+	
+	UserDaoHandler.prototype.update = function(userId, userName, userPassword, userSex) {
+		var data = {
+				userId : userId,
+				userName : userName,
+				userPassword : userPassword,
+				userSex : userSex
+			};
+
+			return $.ajax({
+				type : "POST",
+				url : "daoUserUpdate.do",
+				data : data,
+				dataType : "json"
+			}).pipe(function(val) {
+				return val;
+			});
+	}
+	
+	
+	UserDaoHandler.prototype.list = function() {
+		return $.ajax({
+			type : "POST",
+			url : "daoUserList.do",
+			data : {},
+			dataType : "json"
+		}).pipe(function(val) {
+			return val;
+		});
+	}
+	
+	UserDaoHandler.prototype.create = function(userName, userPassword, userSex) {
+		return $.ajax({
+			type : "POST",
+			url : "daoUserCreate.do",
+			data : {userName: userName,userPassword : userPassword, userSex : userSex},
+			dataType : "json"
+		}).pipe(function(val) {
+			return val;
+		});
+	}
+	
+	
+	UserDaoHandler.prototype.delete = function(userId) {
+		return $.ajax({
+			type : "POST",
+			url : "daoUserDelete.do",
+			data : {userId: userId},
+			dataType : "json"
+		}).pipe(function(val) {
+			return val;
+		});
+	}
+
+
+	brite.UserDaoHandler = UserDaoHandler;
+
+})(jQuery);
+
+
