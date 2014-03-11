@@ -1,7 +1,7 @@
-brite.registerView("usertView", {emptyParent:true}, {
+brite.registerView("UserView", {emptyParent:true}, {
 	create: function(data,config){
 	   var userList = data.userList;
-       return render("tmpl-ContactView", {userList:userList});
+       return render("tmpl-UserView", {userList:userList});
    },
    
    postDisplay: function(){
